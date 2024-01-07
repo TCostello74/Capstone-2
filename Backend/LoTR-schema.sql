@@ -1,10 +1,7 @@
 --Create Users table
 CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    username TEXT NOT NULL PRIMARY KEY,
+    password TEXT
 );
 
 -- Create Characters table
@@ -32,9 +29,14 @@ CREATE TABLE quotes (
 -- Create Trivia Questions table
 CREATE TABLE trivia_questions (
     id SERIAL PRIMARY KEY,
-    question TEXT NOT NULL,
-    correct_answer INTEGER REFERENCES characters(id)
+    quote TEXT NOT NULL,
+    correct_character_id VARCHAR(255) NOT NULL REFERENCES characters(id),
+    option1 VARCHAR(255) NOT NULL REFERENCES characters(id),
+    option2 VARCHAR(255) NOT NULL REFERENCES characters(id),
+    option3 VARCHAR(255) NOT NULL REFERENCES characters(id),
+    option4 VARCHAR(255) NOT NULL REFERENCES characters(id)
 );
+
 
 -- Create User Scores table
 CREATE TABLE user_scores (
