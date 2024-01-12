@@ -1,0 +1,76 @@
+const express = require('express');
+const router = new express.Router();
+const ExpressError= require("../expressError");
+const db = require("../db");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { BCRYPT_WORK_FACTOR, SECRET_KEY } = require("../config");
+const { ensureLoggedIn } = require("../middleware/auth");
+
+router.get('/', (req, res, next) => {
+    res.send("APP IS WORKING!!!")
+})
+
+router.post('/register', async (req, res, next) => {
+    try {
+      const { username, password } = req.body;
+      if (!username || !password) {
+        throw new ExpressError("Username and Password required", 400);
+      }
+      // hash password
+      const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+      // save to db
+      const results = await db.query(`
+        INSERT INTO users (username, password)
+        VALUES ($1, $2)
+        RETURNING username`,
+        [username, hashedPassword]);
+      return res.json(results.rows[0]);
+    } catch (e) {
+      return next(e)
+    }
+});
+
+router.post('/login', async (req, res, next) => {
+    try {
+      const { username, password } = req.body;
+      if (!username || !password) {
+        throw new ExpressError("Username and Password required", 400);
+      }
+      const results = await db.query(`
+        SELECT username, password
+        FROM users
+        WHERE username = $1`,
+        [username]);
+      const user = results.rows[0];
+      if (user) {
+        if (await bcrypt.compare(password, user.password)) {
+          const token = jwt.sign({ username }, SECRET_KEY);
+          return res.json({ message: `Logged in!`, token })
+        }
+      }
+      throw new ExpressError("Invalid username/password", 400);
+    } catch(e) {
+      return next(e);
+    }
+})
+
+
+//FOR ENSURING USER LOGGED IN USING TOKEN
+router.get('/topsecret',
+  ensureLoggedIn,
+  (req, res, next) => {
+    try {
+        return res.json({ msg: "SIGNED IN! THIS IS TOP SECRET" })
+
+    } catch (e) {
+        return next(new ExpressError("Please login first!", 401)) 
+    }
+  })
+
+router.get('/private', ensureLoggedIn, (req, res, next) => {
+    return res.json({ msg: `Welcome to VIP section, ${req.user.username}` })
+})
+
+module.exports = router;
+

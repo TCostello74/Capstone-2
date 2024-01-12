@@ -1,16 +1,13 @@
 
 const express = require('express');
-
 const axios = require('axios');
 const router = new express.Router();
 
-//Route to Fetch All
+//Route to Fetch All characters
 router.get('/', async (req, res) => {
     try {
       const response = await axios.get('https://the-one-api.dev/v2/character', {
-        headers: {
-          'Authorization': `Bearer ${process.env.API_KEY}`
-        }
+        headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
       });
       //console.log(response.data);
       res.json(response.data);
@@ -19,7 +16,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-  // Route to fetch by name
+  // Route to fetch character by name
 router.get('/search', async (req, res) => {
     const searchQuery = req.query.name;
     try {
@@ -35,7 +32,7 @@ router.get('/search', async (req, res) => {
     }
   });
   
-  //Route to fetch by ID
+  //Route to fetch character by ID
 router.get('/:id', async (req, res) => {
     try {
       const response = await axios.get(`https://the-one-api.dev/v2/character/${req.params.id}`, {

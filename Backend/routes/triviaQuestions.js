@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
+// question randomizer
 router.get('/random', async (req, res) => {
     try {
         // Fetch a random quote from The One API
