@@ -1,6 +1,7 @@
 const express = require('express');
 const ExpressError = require("./expressError");
 require('dotenv').config();
+const cors = require('cors');
 const { authenticateJWT } = require("./middleware/auth")
 
 //Initializes new Express application
@@ -8,6 +9,7 @@ const app = express();
 //Middleware to parse incoming JSON payloads
 app.use(express.json());
 app.use(authenticateJWT);
+app.use(cors());
 
 const userRoutes = require('./routes/users');
 const characterRoutes = require('./routes/characters');
