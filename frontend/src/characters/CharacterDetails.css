@@ -1,0 +1,24 @@
+/* CharacterDetails.css */
+
+.character-details-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .character-name {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .character-detail {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .character-link {
+    color: #0066cc; /* Set your desired link color */
+  }
+  
+  
