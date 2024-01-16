@@ -47,6 +47,18 @@ router.get('/:id', async (req, res) => {
     }
   });
   
+// Route to fetch quotes for a character by ID
+router.get('/:id/quotes', async (req, res) => {
+  try {
+    const response = await axios.get(`https://the-one-api.dev/v2/character/${req.params.id}/quote`, {
+      headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
+    });
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 module.exports = router;
   
