@@ -16,6 +16,9 @@ const NavBar = () => {
         <li>
           <Link to="/quotes">Quotes</Link>
         </li>
+        <li>
+          <Link to="/trivia">Trivia</Link>
+        </li>
       </ul>
     </nav>
   );
