@@ -1,4 +1,3 @@
-// Quotes.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Quotes.css';

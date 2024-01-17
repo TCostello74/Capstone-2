@@ -25,7 +25,9 @@ const Characters = () => {
     try {
       const response = await axios.get(`http://localhost:3000/characters/search?name=${searchQuery}`);
       setCharacters(response.data);
-      setFilterLetter(''); // Clear the filter when searching
+      
+      // Clear the filter when searching
+      setFilterLetter(''); 
     } catch (error) {
       console.error('Error searching characters:', error);
     }
@@ -33,7 +35,9 @@ const Characters = () => {
 
   const handleFilter = (letter) => {
     setFilterLetter(letter === filterLetter ? '' : letter);
-    setSearchQuery(''); // Clear the search query when applying the filter
+    
+    // Clear the search query when applying the filter
+    setSearchQuery(''); 
   };
 
   const filteredCharacters = characters.filter((character) =>
@@ -55,7 +59,7 @@ const Characters = () => {
       </div>
 
       <div className="filter-bar">
-        {/* Add a button for "All" */}
+        {/* //Add a button for all */}
         <button className="filter-button" onClick={() => handleFilter('')}>All</button>
         
         {/* Add small buttons for each alphabet letter */}
@@ -79,7 +83,6 @@ const Characters = () => {
             <Link to={`/characters/${character._id}`}>
               <h3>{character.name}</h3>
             </Link>
-            {/* Add more details as needed */}
           </li>
         ))}
       </ul>

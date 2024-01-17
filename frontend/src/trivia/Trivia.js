@@ -16,9 +16,9 @@ const Trivia = () => {
   const fetchTriviaQuestion = async () => {
     try {
       const response = await axios.get('http://localhost:3000/triviaQuestions/random');
-      const { questionId, question, choices } = response.data; // Update variable names
+      const { questionId, question, choices } = response.data; 
       setQuestionId(questionId);
-      setQuestion(question); // Update from response.data.quote to response.data.question
+      setQuestion(question); 
       setChoices(choices);
       setSelectedOption('');
       setIsCorrect(null);
