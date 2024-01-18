@@ -45,13 +45,15 @@ const Characters = () => {
   );
 
   return (
+  <div className="characters-body">
     <div className="characters-container">
-      <h1>CHARACTERS</h1>
+      <h1 className="character-title">CHARACTERS</h1>
 
       <div className="search-container">
-        <label>Search by Name:</label>
+        <label className="search-label">Search by Name:</label>
         <input
           type="text"
+          placeholder=" Enter name here "
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -87,6 +89,7 @@ const Characters = () => {
         ))}
       </ul>
     </div>
+  </div>
   );
 };
 

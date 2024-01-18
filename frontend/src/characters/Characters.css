@@ -1,16 +1,42 @@
+.characters-body {
+  position: relative;
+}
+
+.characters-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('https://r4.wallpaperflare.com/wallpaper/902/129/66/middle-earth-the-lord-of-the-rings-map-cartography-wallpaper-e9d0689d117acdbba697888fb051a6bd.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .characters-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8); 
 }
 
-h1 {
+.character-title {
   text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: goldenrod;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
 }
 
-label {
+.search-label {
   display: block;
   margin-bottom: 8px;
+  font-size: 20px;
+  color: black;
+  font-weight: bold;
 }
 
 .search-container {
@@ -21,21 +47,22 @@ label {
 }
 
 input {
-  width: 50%; 
+  width: 30%; 
   padding: 5px; 
   margin-bottom: 10px;
   box-sizing: border-box;
 }
 
 .search-button {
-  width: 50%; 
-  padding: 5px; 
-  background-color: #4caf50;
-  color: white;
-  border: none;
+  width: 30%; 
+  padding: 10px; 
+  background-color: black;
+  color: goldenrod;
   border-radius: 4px;
   cursor: pointer;
   box-sizing: border-box;
+  border-color: goldenrod;
+  margin-bottom: 20px;
 }
 
 ul {
@@ -47,15 +74,16 @@ ul {
 }
 
 .character-card {
-  border: 1px solid #ccc;
+  border: 3px solid goldenrod;
   padding: 10px;
   margin: 10px;
   width: calc(20% - 20px); 
   box-sizing: border-box;
+  background-color: black;
 }
 
 .character-card h3 {
-  color: black; 
+  color: goldenrod; 
 }
 
 .search-results {
@@ -82,5 +110,6 @@ ul {
 }
 
 .filter-bar button.active {
-  background-color: #ddd; /* Add a background color for the active button */
+  background-color: black;
+  color: goldenrod; 
 }
