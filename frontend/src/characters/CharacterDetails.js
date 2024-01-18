@@ -32,13 +32,13 @@ const CharacterDetails = () => {
 
   return (
     <div className="character-details-container">
-      <h1 className="character-name">{characterDetails.name}</h1>
-      <p className="character-detail">Race: {characterDetails.race}</p>
-      <p className="character-detail">Gender: {characterDetails.gender}</p>
-      <p className="character-detail">Hair: {characterDetails.hair}</p>
-      <p className="character-detail">Birth: {characterDetails.birth}</p>
-      <p className="character-detail">Death: {characterDetails.death}</p>
-      <p className="character-detail">Wiki Page: <a className="character-link" href={characterDetails.wikiUrl} target="_blank" rel="noopener noreferrer">Link</a></p>
+      <h1 className="character-nameplate">{characterDetails.name}</h1>
+      <p className="character-detail">Race:  {characterDetails.race}</p>
+      <p className="character-detail">Gender:  {characterDetails.gender}</p>
+      <p className="character-detail">Hair:  {characterDetails.hair}</p>
+      <p className="character-detail">Birth:  {characterDetails.birth}</p>
+      <p className="character-detail">Death:  {characterDetails.death}</p>
+      <p className="character-detail">Wiki Page:  <a className="character-link" href={characterDetails.wikiUrl} target="_blank" rel="noopener noreferrer">Link</a></p>
       <h2 className="quotes-header">Quotes:</h2>
       <div className="quotes-list">
         {characterQuotes.map((quote, index) => (
