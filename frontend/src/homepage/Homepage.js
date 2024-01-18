@@ -3,9 +3,11 @@ import './Homepage.css';
 
 const Homepage = () => {
   return (
-    <div>
-      <h1>Welcome to My LOTR App!</h1>
+   <div className="homepage-body"> 
+    <div className="homepage-container">
+      <h1 className="homepage-title">Welcome to Middle Earth</h1>
     </div>
+   </div>
   );
 };
 
