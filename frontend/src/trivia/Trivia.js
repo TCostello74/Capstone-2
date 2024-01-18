@@ -66,6 +66,7 @@ const Trivia = () => {
           {isCorrect ? 'Correct!' : 'Incorrect. Try again!'}
         </p>
       )}
+      <br></br>
       <button className="next-button" onClick={fetchTriviaQuestion}>
         Next Question
       </button>
