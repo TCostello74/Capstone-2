@@ -1,10 +1,8 @@
-/* NavBar.css */
-
 .navbar {
-    background-color: #333;
+    background-color: #131212;
     padding: 10px;
     display: flex;
-    justify-content: space-between; /* Align items from left to right */
+    justify-content: space-between; 
   }
   
   ul {
@@ -20,7 +18,7 @@
   
   a {
     text-decoration: none;
-    color: white;
+    color: goldenrod;
     font-weight: bold;
     font-size: 16px;
   }

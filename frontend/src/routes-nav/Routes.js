@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from '../homepage/Homepage';
 import Characters from '../characters/Characters';
-import Quotes from '../quotes/Quotes';
+import Quotes from '../quotes/RandomQuote';
 import Trivia from '../trivia/Trivia';
 import CharacterDetails from '../characters/CharacterDetails';
 
