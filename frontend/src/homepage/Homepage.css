@@ -19,10 +19,11 @@
   padding: 20px;
 }
 
+
 .homepage-title {
-  font-size: 7em;
+  font-size: 130px;
   font-family: 'Brush Script MT', cursive;
   color: goldenrod; 
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
-  text-decoration: underline;
+  
 }

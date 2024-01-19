@@ -10,14 +10,14 @@ const RandomQuote = () => {
     try {
       let selectedQuote;
   
-      // Fetch quotes until a quote with at least 50 characters is found
+      // Fetch quotes until a quote with at least 40 characters is found
       do {
         console.log('Fetching a random quote...');
         const quoteResponse = await axios.get('http://localhost:3000/quotes');
         const quotes = quoteResponse.data.docs;
         selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
         console.log('Selected Quote:', selectedQuote);
-      } while (selectedQuote.dialog.length < 50);
+      } while (selectedQuote.dialog.length < 40);
   
       setRandomQuote(selectedQuote);
   

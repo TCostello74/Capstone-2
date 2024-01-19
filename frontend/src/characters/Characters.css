@@ -21,11 +21,12 @@
   padding: 20px;
   position: relative;
   background-color: rgba(255, 255, 255, 0.8); 
+  border: 2px solid black;
 }
 
 .character-title {
   text-align: center;
-  font-size: 36px;
+  font-size: 40px;
   font-weight: bold;
   color: goldenrod;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
