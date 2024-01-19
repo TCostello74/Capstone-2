@@ -22,7 +22,7 @@ VALUES
 ('Which river does Frodo cross with the help of Gollum?', 2, 'Anduin', 'Bruinen', 'Isen', 'Entwash'),
 ('Which race is Gimli?', 3, 'Human', 'Elf', 'Dwarf', 'Hobbit'),
 ('Which race is Samwise Gamgee?', 4, 'Human', 'Elf', 'Dwarf', 'Hobbit'),
-('What is Aragorn''s primary weapon?', 2, 'Sword', 'Staff', 'Bow', 'Dagger'),
-('What is Legolas'' primary weapon?', 2, 'Sword', 'Staff', 'Bow', 'Dagger')
+('What is Aragorn''s primary weapon?', 1, 'Sword', 'Staff', 'Bow', 'Dagger'),
+('What is Legolas'' primary weapon?', 3, 'Sword', 'Staff', 'Bow', 'Dagger')
 
 

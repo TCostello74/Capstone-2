@@ -4,7 +4,23 @@ const router = express.Router();
 
 router.get('/random', async (req, res) => {
   try {
-    const questionResponse = await db.query('SELECT * FROM trivia_game ORDER BY RANDOM() LIMIT 1');
+    // Get the list of used question IDs from the request, if provided
+    const usedQuestionIds = req.query.usedQuestionIds ? req.query.usedQuestionIds.split(',') : [];
+
+    // Construct the query to exclude used question IDs
+    let query = 'SELECT * FROM trivia_game';
+    if (usedQuestionIds.length > 0) {
+      const placeholders = usedQuestionIds.map((_, index) => `$${index + 1}`).join(',');
+      query += ` WHERE id NOT IN (${placeholders})`;
+    }
+    query += ' ORDER BY RANDOM() LIMIT 1';
+
+    // Execute the query with the list of used question IDs as parameters
+    const questionResponse = await db.query(query, usedQuestionIds);
+    if (questionResponse.rows.length === 0) {
+      return res.status(404).json({ message: 'No more new questions available.' });
+    }
+
     const question = questionResponse.rows[0];
 
     res.json({
