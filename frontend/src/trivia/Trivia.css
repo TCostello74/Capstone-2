@@ -86,6 +86,12 @@
   width: 30%;
 }
 
+.trivia-submit-button:disabled {
+  background-color: grey; 
+  cursor: not-allowed;
+}
+
+
 .trivia-next-button {
   padding: 12px;
   background-color: goldenrod;
@@ -97,6 +103,11 @@
   display: block;
   margin: 0px auto; 
   width: 30%;
+}
+
+.trivia-next-button:disabled {
+  background-color: grey; 
+  cursor: not-allowed;
 }
 
 
