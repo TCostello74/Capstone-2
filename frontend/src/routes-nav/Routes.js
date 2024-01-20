@@ -7,6 +7,8 @@ import TriviaHome from '../trivia/TriviaHome';
 import Trivia from '../trivia/Trivia';
 import TriviaScore from '../trivia/TriviaScore';
 import CharacterDetails from '../characters/CharacterDetails';
+import LoginForm from '../auth/LoginForm';
+import SignupForm from '../auth/SignupForm';
 
 const Routes = ({ setScore, score }) => {
   return (
@@ -28,6 +30,12 @@ const Routes = ({ setScore, score }) => {
       </Route>
       <Route path="/trivia-score" exact>
         <TriviaScore score={score}/>
+      </Route>
+      <Route path="/login">
+        <LoginForm />
+      </Route>
+      <Route path="/signup">
+        <SignupForm />
       </Route>
       <Route path="/">
         <Homepage />
