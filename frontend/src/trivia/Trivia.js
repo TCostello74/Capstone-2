@@ -13,6 +13,7 @@ const Trivia = ({ setScore }) => {
   const fetchTriviaQuestionRef = useRef();
   const history = useHistory();
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [answerSubmitted, setAnswerSubmitted] = useState(false);
 
   const fetchTriviaQuestion = async () => {
     try {
@@ -26,8 +27,11 @@ const Trivia = ({ setScore }) => {
       setChoices(choices);
       setSelectedOption('');
       setIsCorrect(null);
-
+      setAnswerSubmitted(false);
       setUsedQuestionIds((prev) => [...prev, questionId]);
+
+      
+
     } catch (error) {
       console.error('Error fetching trivia question:', error);
     }
@@ -60,25 +64,37 @@ const Trivia = ({ setScore }) => {
       }
   
       setIsCorrect(isCorrect);
-
+      setAnswerSubmitted(true);
 
       setTimeout(() => {
-        if (questionNumber < 10) {
-          setQuestionNumber((prev) => prev + 1);
-        } else {
+        if (questionNumber >= 10) {
           history.push('/trivia-score');
         }
       }, 2000);
+      // setTimeout(() => {
+      //   if (questionNumber < 10) {
+      //     setQuestionNumber((prev) => prev + 1);
+      //   } else {
+      //     history.push('/trivia-score');
+      //   }
+      // }, 2000);
 
     } catch (error) {
       console.error('Error validating answer:', error);
     }
   };
 
+  const handleNextQuestion = () => {
+    if (questionNumber < 10) {
+      setQuestionNumber((prev) => prev + 1);
+      fetchTriviaQuestion();
+    }
+  };
+
   return (
    <div className="Trivia-body">
     <div className="trivia-container">
-      <h1 className="trivia-question-number">Question:</h1>
+      <h1 className="trivia-question-number">Question {questionNumber}:</h1>
       <p className="trivia-question">{question}</p>
       <ul className="trivia-choices">
         {choices.map((choice, index) => (
@@ -91,7 +107,7 @@ const Trivia = ({ setScore }) => {
           </li>
         ))}
       </ul>
-      <button className="trivia-submit-button" onClick={handleAnswerSubmit}>
+      <button className="trivia-submit-button" onClick={handleAnswerSubmit} disabled={answerSubmitted}>
         Submit Answer
       </button>
       {isCorrect !== null && (
@@ -100,9 +116,11 @@ const Trivia = ({ setScore }) => {
         </p>
       )}
       <br></br>
-      <button className="trivia-next-button" onClick={fetchTriviaQuestion}>
-        Next Question
-      </button>
+      {questionNumber < 10 && (
+        <button className="trivia-next-button" onClick={handleNextQuestion} disabled={!answerSubmitted}>
+          {questionNumber < 9 ? 'Next Question' : 'See Results'}
+        </button>
+      )}
     </div>
    </div>
   );
