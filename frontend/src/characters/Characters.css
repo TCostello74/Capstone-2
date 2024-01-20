@@ -84,7 +84,8 @@ ul {
 }
 
 .character-card h3 {
-  color: goldenrod; 
+  color: goldenrod;
+  text-align: center; 
 }
 
 .search-results {
