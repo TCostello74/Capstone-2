@@ -1,8 +1,8 @@
 
--- CREATE TABLE users (
---     username TEXT NOT NULL PRIMARY KEY,
---     password TEXT NOT NULL
--- );
+CREATE TABLE users (
+    username TEXT NOT NULL PRIMARY KEY,
+    password TEXT NOT NULL
+);
 
 CREATE TABLE trivia_game (
     id SERIAL PRIMARY KEY,

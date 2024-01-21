@@ -4,9 +4,8 @@ require('dotenv').config();
 const cors = require('cors');
 const { authenticateJWT } = require("./middleware/auth")
 
-//Initializes new Express application
 const app = express();
-//Middleware to parse incoming JSON payloads
+
 app.use(express.json());
 app.use(authenticateJWT);
 app.use(cors());
@@ -18,7 +17,6 @@ const moviesRoutes = require('./routes/movies');
 const booksRoutes = require('./routes/books');
 const triviaRoutes = require('./routes/triviaQuestions')
 
-//Set up Routes
 
 app.use('/users', userRoutes);
 app.use('/characters', characterRoutes);
@@ -33,13 +31,11 @@ app.use(function (req, res, next) {
    return next(err);
 });
 
-/** general error handler */
+//general error handler
 
 app.use(function(err, req, res, next) {
-  // the default status is 500 Internal Server Error
   let status = err.status || 500;
 
-  // set the status and alert the user
   return res.status(status).json({
     error: {
       message: err.message,

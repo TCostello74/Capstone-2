@@ -56,7 +56,6 @@ router.post('/login', async (req, res, next) => {
 })
 
 
-//FOR ENSURING USER LOGGED IN USING TOKEN
 router.get('/topsecret',
   ensureLoggedIn,
   (req, res, next) => {

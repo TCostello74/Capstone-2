@@ -8,7 +8,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { SECRET_KEY } = require("../config");
 
-// small value to ensure tests are fast
 const BCRYPT_WORK_FACTOR = 1;
 
 let testUserToken;
@@ -29,7 +28,7 @@ beforeEach(async function () {
   testAdminToken = jwt.sign(testAdmin, SECRET_KEY);
 });
 
-/** POST /register returns `{username}` */
+//register returns `{username}` 
 
 describe('POST /users/register', function () {
   test("returns {username}", async function () {
@@ -42,7 +41,7 @@ describe('POST /users/register', function () {
 });
 
 
-/** POST /login returns a JWT token **/
+//login returns a JWT token
 
 describe('POST /users/login', function () {
   test("returns logged in msg", async function () {
@@ -72,24 +71,22 @@ describe("GET /users/topsecret", function () {
 
   test("returns 401 when logged out", async function () {
     const response = await request(app)
-      .get(`/users/topsecret`); // no token being sent!
+      .get(`/users/topsecret`); 
     expect(response.statusCode).toBe(401);
   });
 
   test("returns 401 with bad token", async function () {
     const response = await request(app)
       .get(`/users/topsecret`)
-      .send({ _token: "garbage" }); // invalid token!
+      .send({ _token: "garbage" }); 
     expect(response.statusCode).toBe(401);
   });
 });
 
 afterEach(async function () {
-  // delete any data created by test
   await db.query("DELETE FROM users");
 });
 
 afterAll(async function () {
-  // close db connection
   await db.end();
 });

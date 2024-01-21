@@ -13,7 +13,7 @@ describe('Quotes Router', () => {
         mock.reset();
     });
 
-    // Test for GET all quotes
+    // Test to GET all quotes
     test('GET /quotes', async () => {
         const mockData = { data: [{ id: '1', dialog: 'Quote 1' }, { id: '2', dialog: 'Quote 2' }] };
         mock.onGet('https://the-one-api.dev/v2/quote').reply(200, mockData);
@@ -23,7 +23,7 @@ describe('Quotes Router', () => {
         expect(response.body).toEqual(mockData);
     });
 
-    // Test for GET quote by ID
+    // Test to GET quote by ID
     test('GET /quotes/:id', async () => {
         const quoteId = '5cd96e05de30eff6ebcce80b'; 
         const mockData = {

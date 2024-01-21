@@ -6,20 +6,19 @@ const router = new express.Router();
 
 router.use(cors());
 
-//Route to Fetch All characters
+//RFetch All characters
 router.get('/', async (req, res) => {
     try {
       const response = await axios.get('https://the-one-api.dev/v2/character', {
         headers: { 'Authorization': `Bearer ${process.env.API_KEY}` }
       });
-      //console.log(response.data);
       res.json(response.data);
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
   });
 
-  // Route to fetch character by name
+  // fetch character by name
 router.get('/search', async (req, res) => {
     const searchQuery = req.query.name;
     try {
@@ -35,7 +34,7 @@ router.get('/search', async (req, res) => {
     }
   });
   
-  //Route to fetch character by ID
+  //fetch character by ID
 router.get('/:id', async (req, res) => {
     try {
       const response = await axios.get(`https://the-one-api.dev/v2/character/${req.params.id}`, {
@@ -47,7 +46,7 @@ router.get('/:id', async (req, res) => {
     }
   });
   
-// Route to fetch quotes for a character by ID
+//fetch quotes for a character by ID
 router.get('/:id/quotes', async (req, res) => {
   try {
     const response = await axios.get(`https://the-one-api.dev/v2/character/${req.params.id}/quote`, {
