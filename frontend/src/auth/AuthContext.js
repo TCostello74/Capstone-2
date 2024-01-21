@@ -18,7 +18,6 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn(false);
     };
 
-    // Re-check token on initial mount
     useEffect(() => {
         setIsLoggedIn(!!localStorage.getItem('token'));
     }, []);

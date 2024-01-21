@@ -42,7 +42,7 @@ const Trivia = ({ setScore }) => {
 
   useEffect(() => {
     // Use the ref in useEffect
-    fetchTriviaQuestionRef.current(); // Fetch the initial question
+    fetchTriviaQuestionRef.current(); 
   }, []);
 
   const handleOptionSelect = (option) => {
@@ -71,13 +71,6 @@ const Trivia = ({ setScore }) => {
           history.push('/trivia-score');
         }
       }, 2000);
-      // setTimeout(() => {
-      //   if (questionNumber < 10) {
-      //     setQuestionNumber((prev) => prev + 1);
-      //   } else {
-      //     history.push('/trivia-score');
-      //   }
-      // }, 2000);
 
     } catch (error) {
       console.error('Error validating answer:', error);

@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import './Form.css';
 
+//form for logging in
 function LoginForm() {
     const { login } = useContext(AuthContext);
     const history = useHistory();

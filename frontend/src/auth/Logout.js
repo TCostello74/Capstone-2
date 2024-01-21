@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext'; 
 
+//logout function
 const Logout = () => {
     const { logout } = useContext(AuthContext);
     const history = useHistory();
