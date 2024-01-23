@@ -26,7 +26,7 @@ const TriviaHome = ({ setScore }) => {
         
         {showLoginMessage && <p className="login-message">You must be logged in to play.</p>}
         
-        <div classname="start-button-container">
+        <div className="start-button-container">
           <button className="start-button-text" onClick={handleQuizStart}>Start Quiz</button>
         </div>
       </div>

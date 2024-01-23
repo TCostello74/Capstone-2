@@ -19,8 +19,10 @@ const CharacterDetails = () => {
         setCharacterQuotes(responseQuotes.data.docs);
 
       } catch (error) {
+        if (process.env.NODE_ENV !== 'test') {
         console.error('Error fetching character details:', error);
       }
+    }
     };
 
     fetchCharacterDetails();

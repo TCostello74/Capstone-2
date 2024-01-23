@@ -14,8 +14,10 @@ const Characters = () => {
         const response = await axios.get('http://localhost:3000/characters');
         setCharacters(response.data.docs);
       } catch (error) {
+        if (process.env.NODE_ENV !== 'test') {
         console.error('Error fetching characters:', error);
       }
+    }
     };
 
     fetchCharacters();

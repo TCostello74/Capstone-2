@@ -60,8 +60,10 @@ const RandomQuote = () => {
           setCharacter(character);
         }
       } catch (error) {
+        if (process.env.NODE_ENV !== 'test') {
         console.error('Error fetching random quote:', error);
       }
+    }
     };
 
     fetchData();

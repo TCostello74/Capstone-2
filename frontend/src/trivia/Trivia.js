@@ -33,8 +33,10 @@ const Trivia = ({ setScore }) => {
       
 
     } catch (error) {
+      if (process.env.NODE_ENV !== 'test') {
       console.error('Error fetching trivia question:', error);
     }
+  }
   };
 
   // Assign the function to the ref
