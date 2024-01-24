@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
-    "start": "node ./dist/src/server.js"
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
