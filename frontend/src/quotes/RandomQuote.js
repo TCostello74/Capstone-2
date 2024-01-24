@@ -13,7 +13,7 @@ const RandomQuote = () => {
       // Fetch quotes until a quote with at least 40 characters is found
       do {
         console.log('Fetching a random quote...');
-        const quoteResponse = await axios.get('http://localhost:3000/quotes');
+        const quoteResponse = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/quotes`);
         const quotes = quoteResponse.data.docs;
         selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
         console.log('Selected Quote:', selectedQuote);
@@ -24,7 +24,7 @@ const RandomQuote = () => {
       // Fetch the character information using the character ID from the quote
       const characterId = selectedQuote.character;
       console.log('Fetching character information for ID:', characterId);
-      const characterResponse = await axios.get(`http://localhost:3000/characters/${characterId}`);
+      const characterResponse = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/characters/${characterId}`);
       const characterData = characterResponse.data;
       const character = characterData.docs[0]; 
       console.log('Character Information:', character);
