@@ -42,7 +42,7 @@ const RandomQuote = () => {
     const fetchData = async () => {
       try {
         console.log('Fetching a random quote...');
-        const quoteResponse = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/quotes`);
+        const quoteResponse = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/quotes`);
         const quotes = quoteResponse.data.docs;
         const selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
         console.log('Selected Quote:', selectedQuote);
@@ -52,7 +52,7 @@ const RandomQuote = () => {
 
           const characterId = selectedQuote.character;
           console.log('Fetching character information for ID:', characterId);
-          const characterResponse = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/characters/${characterId}`);
+          const characterResponse = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/characters/${characterId}`);
           const characterData = characterResponse.data;
           const character = characterData.docs[0];
           console.log('Character Information:', character);
