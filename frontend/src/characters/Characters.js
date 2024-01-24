@@ -11,7 +11,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/characters');
+        const response = await axios.get('{process.env.REACT_APP_API_BASE_URL}/characters');
         setCharacters(response.data.docs);
       } catch (error) {
         if (process.env.NODE_ENV !== 'test') {
@@ -25,7 +25,7 @@ const Characters = () => {
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/characters/search?name=${searchQuery}`);
+      const response = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/characters/search?name=${searchQuery}`);
       setCharacters(response.data);
       
       // Clear the filter when searching

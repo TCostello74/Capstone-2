@@ -11,11 +11,11 @@ const CharacterDetails = () => {
   useEffect(() => {
     const fetchCharacterDetails = async () => {
       try {
-        const responseDetails = await axios.get(`http://localhost:3000/characters/${id}`);
+        const responseDetails = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/characters/${id}`);
         setCharacterDetails(responseDetails.data.docs[0]); 
 
         // Fetch quotes after fetching character details
-        const responseQuotes = await axios.get(`http://localhost:3000/characters/${id}/quotes`);
+        const responseQuotes = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/characters/${id}/quotes`);
         setCharacterQuotes(responseQuotes.data.docs);
 
       } catch (error) {
