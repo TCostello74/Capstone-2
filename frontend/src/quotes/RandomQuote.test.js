@@ -7,13 +7,13 @@ import RandomQuote from './RandomQuote';
 jest.mock('axios');
 
 describe('RandomQuote Component', () => {
-  // Test 1: Component renders correctly
+  // Test Component renders correctly
   test('renders without crashing', () => {
     render(<RandomQuote />);
     expect(screen.getByText(/New Random Quote/i)).toBeInTheDocument();
   });
 
-  // Test 2: Fetches and displays a random quote
+  // Test Fetches and displays a random quote
   test('fetches and displays a random quote', async () => {
     const mockQuote = {
       data: {
