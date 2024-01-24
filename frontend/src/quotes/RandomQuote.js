@@ -42,7 +42,7 @@ const RandomQuote = () => {
     const fetchData = async () => {
       try {
         console.log('Fetching a random quote...');
-        const quoteResponse = await axios.get('{process.env.REACT_APP_API_BASE_URL}/quotes');
+        const quoteResponse = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/quotes`);
         const quotes = quoteResponse.data.docs;
         const selectedQuote = quotes[Math.floor(Math.random() * quotes.length)];
         console.log('Selected Quote:', selectedQuote);

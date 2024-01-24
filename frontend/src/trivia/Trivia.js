@@ -17,7 +17,7 @@ const Trivia = ({ setScore }) => {
 
   const fetchTriviaQuestion = async () => {
     try {
-      const response = await axios.get('{process.env.REACT_APP_API_BASE_URL}/triviaQuestions/random', {
+      const response = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/triviaQuestions/random`, {
         params: { usedQuestionIds: usedQuestionIds.join(',') },
       });
 
@@ -53,7 +53,7 @@ const Trivia = ({ setScore }) => {
 
   const handleAnswerSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/triviaQuestions/validate', {
+      const response = await axios.post(`{process.env.REACT_APP_API_BASE_URL}/triviaQuestions/validate`, {
         questionId,
         selectedOption,
       });

@@ -11,7 +11,7 @@ const Characters = () => {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get('{process.env.REACT_APP_API_BASE_URL}/characters');
+        const response = await axios.get(`{process.env.REACT_APP_API_BASE_URL}/characters`);
         setCharacters(response.data.docs);
       } catch (error) {
         if (process.env.NODE_ENV !== 'test') {
