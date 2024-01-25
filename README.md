@@ -3,6 +3,7 @@
 Lore Of The Rings is an app for fans of the Lord Of The Rings trilogy. Fans will be able to explore all the different characters and see some of their favorite character's most memorable quotes from the series. It also includes an interactive "Who said it?" game and A trivia quiz to test their Lord Of The Rings IQ!
 
 API: [Link](https://the-one-api.dev/)
+
 Website: [LoreOfTheRings](https://loreoftherings-j9iq.onrender.com/)(Deployed with Render)
 
 ## Features
@@ -20,11 +21,11 @@ A user will arrive at the home page, welcomed to Middle-earth and the world of T
 
 **Backend Testing** Various tests to ensure proper data fetching from the API, for all routes.
     
-    - Run with **'jest'**
+    - Run with 'jest'
 
 **Frontend Testing** Various testing to ensure proper rendering and functionality.
     
-    - Run with **'npm test'** 
+    - Run with 'npm test'
 
 ## Tech Stack
 
