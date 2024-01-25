@@ -19,8 +19,11 @@ A user will arrive at the home page, welcomed to Middle-earth and the world of T
 ## Testing
 
 **Backend Testing** Various tests to ensure proper data fetching from the API, for all routes.
+    
     - Run with **'jest'**
+
 **Frontend Testing** Various testing to ensure proper rendering and functionality.
+    
     - Run with **'npm test'** 
 
 ## Tech Stack
@@ -31,9 +34,11 @@ A user will arrive at the home page, welcomed to Middle-earth and the world of T
 - Framework: Express.js
 - Database: PostgreSQL 
 - Authentication: JSON Web Tokens (JWT)
+
 **Frontend**
 - Library: React
 - Routing: React Router
 - HTTP Requests: Axios
+
 **Testing** (Both Frontend and Backend)
 - Testing Framework: Jest
